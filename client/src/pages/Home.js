@@ -5,10 +5,11 @@ import img1 from "../images/utilities/goalsImage.jpeg";
 import img2 from "../images/utilities/secondCourse.png";
 import img3 from "../images/utilities/envirosuite.jpeg";
 import img4 from "../images/utilities/smartFactoryImage.jpeg";
+import Button from "react-bootstrap/Button";
 import useGeolocation from './useGeolocation'; // Adjust the path based on your file structure
 import MapComponent from './MapComponent'; // Adjust the path based on your file structure
-import Preface from '../components/Preface'; 
-import "../css/faculties.css";
+ 
+import "../css/font.css";
 
 
 
@@ -37,10 +38,7 @@ function Home() {
         style={{ backgroundColor: "	#B2FFFF" }}
       >
         <h4 className="text-center">About Carbon NORMI the Initiative</h4>
-        <p
-          className="text-center "
-          style={{ fontSize: "23px" }}
-        >
+        <p className="text-center " style={{ fontSize: "23px" }}>
           The 'Net Zero Carbon' Course is a ground breaking effort that aims to
           equip participants with the information, skills, and practical tools
           they need to face one of our generation's most pressing challenges:
@@ -95,9 +93,7 @@ function Home() {
         </div>
       </div>
       <hr className="" />
-      <div className="container mt-5">
-        <Preface />
-      </div>
+
       <div>
         {/* Display or use currentLatitude and currentLongitude as needed */}
         {currentLatitude && currentLongitude && (
@@ -107,6 +103,13 @@ function Home() {
         )}
         {/* Rest of your component code... */}
       </div>
+      <Button
+        variant="dark"
+        href="./contactus"
+        style={{ position: "fixed", bottom: "100px", right: "20px" }}
+      >
+        Contact Us
+      </Button>
     </>
   );
 }

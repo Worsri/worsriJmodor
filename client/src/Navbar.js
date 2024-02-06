@@ -32,9 +32,9 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item mx-5 ">
-                <Link className="nav-link" to="./registration">
-                  Registration
+              <li className="nav-item mx-5">
+                <Link className=" nav-link" to="./activities">
+                  Faculties
                 </Link>
               </li>
               <li className="nav-item mx-5">
@@ -42,38 +42,10 @@ function Navbar() {
                   Carbon Net Zero
                 </Link>
               </li>
-              <li className="nav-item mx-5 dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  to="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Courses
+              <li className=" nav-item  mx-5">
+                <Link className="nav-link" to="./login">
+                  Login
                 </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    {/* <Link className="dropdown-item" to="#">
-                      Professionals
-                    </Link> */}
-                  </li>
-                  <li>
-                    {/* <Link className="dropdown-item" to="#">
-                      Students
-                    </Link> */}
-                  </li>
-                  <li className="nav-item">
-                    <Link className=" nav-link" to="./activities">
-                      Faculties
-                    </Link>
-                  </li>
-                  <li className=" nav-item  ">
-                    <Link className="nav-link" to="./login">
-                      Login
-                    </Link>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>

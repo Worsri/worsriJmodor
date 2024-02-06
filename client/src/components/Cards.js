@@ -9,7 +9,7 @@ function Cards({imageSrc,text,title,buttonText,style}) {
       <Card.Body >
         <Card.Title>{title}</Card.Title>
         <Card.Text >{text} </Card.Text>
-        <Button variant="primary">{buttonText}</Button>
+        <Button variant="primary" >{buttonText}</Button>
       </Card.Body>
     </Card>
   );

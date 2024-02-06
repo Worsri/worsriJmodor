@@ -6,13 +6,10 @@ function Login() {
     <div className="container w-50">
       <h2 className="text-center">Login With Carbon NORMI</h2>
       <Form>
-        
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-          
-          </Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -26,6 +23,13 @@ function Login() {
           Submit
         </Button>
       </Form>
+      <Button
+        variant="dark"
+        href="./contactus"
+        style={{ position: "fixed", bottom: "100px", right: "20px" }}
+      >
+        Contact Us
+      </Button>
     </div>
   );
 }

@@ -36,15 +36,15 @@ function App() {
               <Route path="/login" element={<Login />} />
             </Routes>
             {/* <LightSwitch /> */}
-            <Button
+            {/* <Button
               variant="dark"
               href="./contactus"
               style={{ position: "fixed", bottom: "100px", right: "20px" }}
             >
              Contact Us 
-            </Button>
+            </Button> */}
           </div>
-          <Footer />
+          
         </div>
       </BrowserRouter>
     </>

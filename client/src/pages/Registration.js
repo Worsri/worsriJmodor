@@ -2,37 +2,31 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/input.css"
 function Registration() {
   const [registrationForm, setRegistrationForm] = useState({
     name: "",
     cno: "",
     age: "",
-    flexRadioDefault1: "", // Assuming you want to capture the selected radio button value
+    educationalQualification: "", // Assuming you want to capture the selected radio button value
     org: "",
     occupation: "",
     designation: "",
     emailid: "",
     course: "",
-    que1: "",
+
     
     profileImage: null, // To store the selected file
-    location: "jaipur", // Default location value
+    location: "", // Default location value
   });
 
   const navigate = useNavigate();
 
   const handleInput = (e) => {
-    const { name, value, type, checked, files } = e.target;
+    const { name, value} = e.target;
     setRegistrationForm((prev) => {
-      if (type === "radio") {
-        return { ...prev, [name]: value };
-      
-      } else {
-        return { ...prev, [name]: value };
-      }
-    
-    }
-    )
+      return { ...prev, [name]: value };
+    })
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,8 +35,7 @@ function Registration() {
    // Append all form data to the formData object
    
 
-    axios
-      .post("http://localhost:5000/registration", registrationForm)
+    axios.post("http://localhost:5000/registration", registrationForm)
       .then((response) => {
         if (response.data) {
           
@@ -64,7 +57,12 @@ function Registration() {
       style={{ backgroundColor: " #e6ffff", borderRadius: "23px" }}
     >
       <h3 className="col-md-4 offset-md-5 mb-5">Registration</h3>
-      <form className="p-2" action="" onSubmit={handleSubmit}>
+      <form
+        className="p-2"
+        action="POST"
+        encType="multipart/form-data"
+        onSubmit={handleSubmit}
+      >
         {/* <h3>Name:</h3> */}
         <div className="row">
           <div className="col-md-3 text-left pt-2">
@@ -86,7 +84,7 @@ function Registration() {
               }}
               placeholder=""
               onChange={handleInput}
-              value={registrationForm.name}
+              // value={registrationForm.name}
             />
           </div>
         </div>
@@ -109,7 +107,7 @@ function Registration() {
               type="text"
               className="form-control border-bottom border-dark  border-3 "
               name="cno"
-              value={registrationForm.ano}
+              // value={registrationForm.ano}
               style={{
                 border: "0px",
                 borderRadius: "0px",
@@ -142,46 +140,42 @@ function Registration() {
               }}
               placeholder=""
               onChange={handleInput}
-              value={registrationForm.age}
+              // value={registrationForm.age}
             />
           </div>
         </div>
+        
+
         {/* /*---------------------------------------------------------------- */}
-        <div className="row ">
-          <div className="col-md-3 text-left pt-2">
+        <div className="row">
+          <div className="col-3 text-left pt-2">
             <h4>
-              <label className="" htmlFor="que1">
-                <span className="label ">What do you do ?</span>
+              <label htmlFor="educationalQualification">
+                <span className="label ">
+                  
+                  Educational Qualification
+                </span>
               </label>
             </h4>
           </div>
-          <div className="col form-check pt-2 ps-5">
+          <div className="col-9 pt-4">
             <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault1"
-              id="flexRadioDefault1"
-              value={registrationForm.flexRadioDefault1}
-              checked
+              type="text"
+              className="form-control border-bottom border-dark  border-3 "
+              name="educationalQualification"
+              id="educationalQualification"
+              style={{
+                border: "0px",
+                borderRadius: "0px",
+                backgroundColor: "#e6ffff",
+              }}
+              placeholder=""
+              onChange={handleInput}
             />
-            <label class="form-check-label" for="flexRadioDefault2">
-              Student
-            </label>
-          </div>
-          <div class="col form-check pt-2">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault1"
-              id="flexRadioDefault1"
-              value="w"
-            />
-            <label class="form-check-label" for="flexRadioDefault1">
-              Working Professional
-            </label>
           </div>
         </div>
 
+        {/* /*---------------------------------------------------------------- */}
         {/* /*---------------------------------------------------------------- */}
         <div className="row">
           <div className="col-3 text-left pt-2">
@@ -299,7 +293,8 @@ function Registration() {
               </label>
             </h4>
           </div>
-          <select className="col form-select pt-2 mx-3" name="course">
+          <select className="col form-select pt-2 mx-3" onChange={handleInput} name="course">
+            <option value="notselected" selected>--Select--</option>
             <option value="lpnzc">
               Leadership Programme for Net Zero Carbon
             </option>
@@ -329,7 +324,7 @@ function Registration() {
         </div> */}
         {/* /*---------------------------------------------------------------- */}
         {/* /*---------------------------------------------------------------- */}
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-3 text-left pt-2 mx-auto">
             <h4>
               <label className="" htmlFor="que2">
@@ -353,7 +348,7 @@ function Registration() {
               onChange={handleInput}
             />
           </div>
-        </div>
+        </div> */}
         {/* /*---------------------------------------------------------------- */}
         {/* /*---------------------------------------------------------------- */}
         <div className="row">
@@ -368,10 +363,10 @@ function Registration() {
             <input
               name="profileImage"
               type="file"
-              class="custom-file-input"
+              className="custom-file-input"
               id="inputGroupFile01"
             />
-            <label class="custom-file-label" for="inputGroupFile01"></label>
+            <label className="custom-file-label" htmlFor="inputGroupFile01"></label>
           </div>
         </div>
         {/* /*---------------------------------------------------------------- */}
@@ -384,7 +379,8 @@ function Registration() {
               </label>
             </h4>
           </div>
-          <select className="col form-select pt-2 mx-3" name="location">
+          <select className="col form-select pt-2 mx-3" name="location" onChange={handleInput}>
+            <option value="NotSelected" selected>--Select--</option>
             <option value="jaipur">Jaipur</option>
             <option value="delhi">Delhi</option>
             <option value="mumbai">Mumbai</option>

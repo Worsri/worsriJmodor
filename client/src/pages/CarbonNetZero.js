@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 import imgc1 from "../images/utilities/secondCourse.png";
+import Preface from '../components/Preface';
 
 function CarbonNetZero() {
 
@@ -11,6 +12,8 @@ function CarbonNetZero() {
       "https://drive.google.com/file/d/1Mfa8f0qBJn9kIbRVOLPC7EIgPoysR7xL/view?usp=drive_link";
   return (
     <>
+      <Preface />
+      <div className="container mt-5"></div>
       <div className="container">
         <div className="row justify-content-around">
           {/* <div className="col-md-6 "> */}
@@ -81,6 +84,13 @@ function CarbonNetZero() {
           Apply Now
         </Button>
       </div>
+      <Button
+        variant="dark"
+        href="./contactus"
+        style={{ position: "fixed", bottom: "100px", right: "20px" }}
+      >
+        Contact Us
+      </Button>
     </>
   );
 }
